@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S&F Store - Sepet</title>
+    <link rel="stylesheet" href="sepetd.css">
+</head>
+<body>
+    <header>
+        <a href="fcomp.html">  <div class="logo"><img src="sfnew2.jpg" width="50px" height="50px"></div></a>
+        <nav>
+            <a href="fcomp.html">Anasayfa</a>
+            <a href="urunlerdeneme.html">Ürünler</a>
+            <a href="fhakkimizda.html">Hakkımızda</a>
+            <a href="iletisim.html">İletişim</a>
+            <a href="sepetd.html">Sepet</a>
+        </nav>
+    </header>
+    <div class="content cart" id="cart">
+        <h1>Sepetiniz</h1>
+        <div id="cart-items"></div>
+        <div class="checkout">
+          <a href="fsatinal.html">  <button id="checkout-button">Satın Al</button></a>
+        </div>
+    </div>
+
+    <script>
+        // Sepet verilerini yükleme
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        // Sepeti gösterme
+        function renderCart() {
+            const cartContainer = document.getElementById('cart-items');
+            if (cart.length === 0) {
+                cartContainer.innerHTML = '<p>Sepetiniz boş.</p>';
+                return;
+            }
+            cartContainer.innerHTML = cart.map((item, index) => `
+                <div class="cart-item">
+                    <img src="${item.image}" alt="Ürün Resmi">
+                    <div class="cart-item-info">
+                        <h2>${item.name}</h2>
+                        <p>${item.price} ₺</p>
+                        <button onclick="removeFromCart(${index})">Kaldır</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Sepetten ürün kaldırma
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            renderCart();
+        }
+
+        // Satın alma düğmesine tıklama
+        document.getElementById('checkout-button').addEventListener('click', function () {
+            if (cart.length === 0) {
+                alert('Sepetiniz boş! Ürün ekleyiniz.');
+            } else {
+                window.location.href = 'satinal.html';
+            }
+        });
+
+        // Sayfa yüklendiğinde sepeti göster
+        renderCart();
+    </script>
+</body>
+</html>

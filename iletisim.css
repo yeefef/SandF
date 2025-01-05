@@ -1,0 +1,115 @@
+body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #FCE8B9, #ffffff);
+            color: #333;
+        }
+
+        .contact-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            color: #251f5c;
+            margin-bottom: 20px;
+        }
+
+        form {
+            background: linear-gradient(135deg, #FCE8B9, #ffffff);  
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            font-size: 1em;
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1em;
+        }
+
+        textarea {
+            resize: none;
+            height: 100px;
+        }
+
+        button {
+            background: #FCE8B9;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            font-size: 1em;
+            color: #251f5c;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            
+        }
+
+        button:hover {
+            background: #251f5c;
+            color: white;
+           
+        }
+
+        .contact-info {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .contact-info p {
+            margin: 5px 0;
+            font-size: 1em;
+            color: #666;
+        }
+        header {
+            background: linear-gradient(135deg, #FCE8B9, #ffffff);
+            color: #251f5c;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: Cascadia Code;
+            
+        }
+
+        header .logo {
+            font-size: 1.5em;
+            font-weight: bold;
+            
+        }
+
+        header nav a {
+            color: #251f5c;
+            text-decoration: none; 
+            margin: 0 15px;
+           
+        }
+
+        header nav a:hover {
+            text-decoration: none;
+        }
+
+        header a {
+            text-decoration: none;
+        }

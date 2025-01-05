@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/jpg" href="sandf2.jpg">
+    <link rel="stylesheet" href="urunlerdeneme.css">
+    <title>S&F Store</title>
+    
+</head>
+<body>
+    <header>
+        <a href="fcomp.html"> <div class="logo"><img src="sfnew2.jpg" width="50px" height="50px"></div></a>
+        <nav>
+            <a href="fcomp.html">Anasayfa</a>
+            <a href="urunlerdeneme.html">Ürünler</a>
+            <a href="fhakkimizda.html">Hakkımızda</a>
+            <a href="iletisim.html">İletişim</a>
+            <a href="sepetd.html">Sepet</a>
+        </nav>
+    </header>
+    <div class="container">
+        <h1>S&F Ürünler</h1>
+        <div class="product-list">
+            <!-- Ürün 1 -->
+            <div class="product">
+                <div class="carousel">
+                 <a href="urunack.html">  <div class="carousel-images">
+                        <img src="#" alt="#">
+                        <img src="#" alt="#">
+                        <img src="#" alt="#">
+                        <img src="#" alt="#">
+                        <img src="#" alt="#">
+                        <img src="#" alt="#"></a>
+                    </div>
+                    <button class="prev" onclick="moveSlide(-1, 0)">&#10094;</button>
+                    <button class="next" onclick="moveSlide(1, 0)">&#10095;</button>
+                </div>
+                <h3>URUN 1</h3>
+                <p class="price">₺99.99</p>
+                <button onclick="addToCart('Ürün 1', 150, 'https://via.placeholder.com/80')">Sepete Ekle</button>
+            </div>
+
+            <!-- Ürün 2 -->
+            <div class="product">
+                <div class="carousel">
+                    <div class="carousel-images">
+                        <img src="urun2-1.jpg" alt="#">
+                        <img src="urun2-2.jpg" alt="#">
+                        <img src="urun2-3.jpg" alt="#">
+                    </div>
+                    <button class="prev" onclick="moveSlide(-1, 1)">&#10094;</button>
+                    <button class="next" onclick="moveSlide(1, 1)">&#10095;</button>
+                </div>
+                <h3>URUN 2</h3>
+                <p class="price">₺149,99</p>
+                <button onclick="addToCart('Ürün 2', 150, 'https://via.placeholder.com/80')">Sepete Ekle</button>
+            </div>
+
+            <!-- Ürün 3 -->
+            <div class="product">
+                <div class="carousel">
+                    <div class="carousel-images">
+                        <img src="urun3-1.jpg" alt="#">
+                        <img src="urun3-2.jpg" alt="#">
+                        <img src="urun3-3.jpg" alt="#">
+                    </div>
+                    <button class="prev" onclick="moveSlide(-1, 2)">&#10094;</button>
+                    <button class="next" onclick="moveSlide(1, 2)">&#10095;</button>
+                </div>
+                <h3>URUN 3</h3>
+                <p class="price">₺129,99</p>
+                <button onclick="addToCart('Malzeme', 150, 'https://via.placeholder.com/80')">Sepete Ekle</button>
+            </div>
+
+            <!-- Ürün 4 -->
+            <div class="product">
+                <div class="carousel">
+                    <div class="carousel-images">
+                        <img src="urun4-1.jpg" alt="#">
+                        <img src="urun4-2.jpg" alt="#">
+                        <img src="urun4-3.jpg" alt="#">
+                    </div>
+                    <button class="prev" onclick="moveSlide(-1, 3)">&#10094;</button>
+                    <button class="next" onclick="moveSlide(1, 3)">&#10095;</button>
+                </div>
+                <h3>URUN 4</h3>
+                <p class="price">₺249,99</p>
+                <button onclick="addToCart('Ürün 2', 150, 'https://via.placeholder.com/80')">Sepete Ekle</button>
+            </div>
+        </div>
+    </div>
+<script>
+    
+        // Resim kaydırma işlevselliği
+        let currentIndex = [0, 0, 0, 0]; // Ürünler için mevcut resim indexleri
+
+        function moveSlide(direction, productIndex) {
+            const slides = document.querySelectorAll(`.product:nth-child(${productIndex + 1}) .carousel-images img`);
+            const totalSlides = slides.length;
+
+            currentIndex[productIndex] = (currentIndex[productIndex] + direction + totalSlides) % totalSlides;
+            const newTransform = `translateX(-${currentIndex[productIndex] * 100}%)`;
+            document.querySelectorAll(`.product:nth-child(${productIndex + 1}) .carousel-images`)[0].style.transform = newTransform;
+        }
+            // Sepete ürün ekleme
+            function addToCart(name, price, image) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart.push({ name, price, image });
+            localStorage.setItem('cart', JSON.stringify(cart));
+            alert(`${name} sepete eklendi!`);
+        }
+
+        // Sepeti yükleme
+        function loadCart() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const cartContainer = document.getElementById('cart-items');
+            cartContainer.innerHTML = cart.map(item => `
+                <div class="cart-item">
+                    <img src="${item.image}" alt="Ürün Resmi">
+                    <div class="cart-item-info">
+                        <h2>${item.name}</h2>
+                        <p>${item.price} ₺</p>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Sayfa yüklendiğinde sepeti göster
+        if (document.getElementById('cart-items')) {
+            loadCart();
+        }
+   
+</script>
+    
+
+</body>
+</html>

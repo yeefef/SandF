@@ -1,0 +1,106 @@
+body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .navbar {
+            display: flex;
+            overflow-x: auto;
+            white-space: nowrap;
+            background-color: #333;
+            padding: 10px 0;
+        }
+
+        .navbar a {
+            display: inline-block;
+            color: white;
+            text-decoration: none;
+            padding: 14px 20px;
+            text-align: center;
+        }
+
+        .navbar a:hover {
+            background-color: #575757;
+        }
+
+        .navbar a:visited {
+            color: white;
+        }
+
+        .content {
+            padding: 20px;
+        }
+
+        .product {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin: 10px 0;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .product img {
+            width: 80px;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .product-info {
+            margin-left: 20px;
+        }
+
+        .product-info h2 {
+            margin: 0 0 10px;
+        }
+
+        .product button {
+            margin-left: auto;
+            padding: 10px 20px;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .product button:hover {
+            background-color: #575757;
+        }
+        header {
+            background: linear-gradient(135deg, #FCE8B9, #ffffff);
+            color: #251f5c;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: Cascadia Code;
+            
+        }
+
+        header .logo {
+            font-size: 1.5em;
+            font-weight: bold;
+            
+        }
+
+        header nav a {
+            color: #251f5c;
+            text-decoration: none; 
+            margin: 0 15px;
+           
+        }
+
+        header nav a:hover {
+            text-decoration: none;
+        }
+
+        header a {
+            text-decoration: none;
+        }
+
+        button{
+            background: linear-gradient(135deg, #FCE8B9, #ffffff);
+            width: 100px;
+            height: 35px;
+        }

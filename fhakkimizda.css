@@ -1,0 +1,78 @@
+body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            background-image: url(sfnew.jpg);
+            min-height: 100vh;
+            background-position-x: center;
+            background-position-y: center;
+        }
+
+        header {
+            background: linear-gradient(135deg, #FCE8B9, #ffffff);
+            color: #251f5c;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: Cascadia Code;
+            
+        }
+
+        header .logo {
+            font-size: 1.5em;
+            font-weight: bold;
+            
+        }
+
+        header nav a {
+            color: #251f5c;
+            text-decoration: none; 
+            margin: 0 15px;
+           
+        }
+
+        header nav a:hover {
+            text-decoration: none;
+        }
+
+        header a {
+            text-decoration: none;
+        }
+
+        .about-container {
+            flex: 1;
+            padding: 40px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .about-container h1 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 2.5em;
+        }
+
+        .about-container p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+
+        footer {
+            background: linear-gradient(135deg, #FCE8B9, #ffffff);
+            color: #251f5c;
+            text-align: center;
+            padding: 10px 20px;
+            width: 100%;
+            margin-top: auto;
+        }
+
+        footer p {
+            margin: 0;
+        }

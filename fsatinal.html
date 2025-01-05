@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S&F Store - Satın Al</title>
+    <link rel="stylesheet" href="fsatinal.css">
+</head>
+<body>
+    <header>
+        <a href="fcomp.html">  <div class="logo"><img src="sfnew2.jpg" width="50px" height="50px"></div></a>
+        <nav>
+            <a href="fcomp.html">Anasayfa</a>
+            <a href="urunlerdeneme.html">Ürünler</a>
+            <a href="fhakkimizda.html">Hakkımızda</a>
+            <a href="iletisim.html">İletişim</a>
+            <a href="sepetd.html">Sepet</a>
+        </nav>
+    </header>
+    <div class="content">
+        <h1>Satın Alma İşlemi</h1>
+        <div id="cart-summary"></div>
+        <form>
+            <div>
+                <label for="name">Ad Soyad:</label>
+                <input type="text" id="name" required>
+            </div>
+            <div>
+                <label for="address">Adres:</label>
+                <textarea id="address" required></textarea>
+            </div>
+            <div>
+                <label for="payment">Ödeme Yöntemi:</label>
+                <select id="payment">
+                    <option>Kredi Kartı</option>
+                    <option>Havale</option>
+                </select>
+            </div>
+            <button type="submit">Satın Al</button>
+        </form>
+
+        <!-- Şartlar ve Koşullar -->
+        <div class="info-section">
+            <h2>Bilgilendirme</h2>
+            <ul>
+                <li><a href="#" onclick="showModal('terms')">Şartlar ve Koşullar</a></li>
+                <li><a href="#" onclick="showModal('privacy')">Gizlilik Politikası</a></li>
+                <li><a href="#" onclick="showModal('security')">Ödeme Güvenliği</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Modal Backdrop -->
+    <div class="modal-backdrop" id="modal-backdrop" onclick="closeModal()"></div>
+
+    <!-- Modal -->
+    <div class="modal" id="modal">
+        <button class="modal-close" onclick="closeModal()">×</button>
+        <h3 id="modal-title"></h3>
+        <p id="modal-content"></p>
+    </div>
+
+    <script>
+        // Sepeti yükle
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        const cartSummary = document.getElementById('cart-summary');
+
+        if (cart.length === 0) {
+            cartSummary.innerHTML = '<p>Sepetiniz boş. Bu sayfaya erişim yalnızca dolu sepet ile mümkündür.</p>';
+        } else {
+            cartSummary.innerHTML = `
+                <h2>Sepet Özeti</h2>
+                <ul>
+                    ${cart.map(item => `<li>${item.name} - ${item.price} ₺</li>`).join('')}
+                </ul>
+                <p>Toplam: ${cart.reduce((total, item) => total + item.price, 0)} ₺</p>
+            `;
+        }
+
+        // Modal gösterme
+        function showModal(type) {
+            const modal = document.getElementById('modal');
+            const backdrop = document.getElementById('modal-backdrop');
+            const title = document.getElementById('modal-title');
+            const content = document.getElementById('modal-content');
+
+            if (type === 'terms') {
+                title.innerText = 'Şartlar ve Koşullar';
+                content.innerText = 'Burada mağaza şartları ve koşulları hakkında bilgiler yer alır.';
+            } else if (type === 'privacy') {
+                title.innerText = 'Gizlilik Politikası';
+                content.innerText = 'Burada mağaza gizlilik politikası hakkında bilgiler yer alır.';
+            } else if (type === 'security') {
+                title.innerText = 'Ödeme Güvenliği';
+                content.innerText = 'Burada ödeme güvenliği hakkında bilgiler yer alır.';
+            }
+
+            modal.style.display = 'block';
+            backdrop.style.display = 'block';
+        }
+
+        // Modal kapatma
+        function closeModal() {
+            const modal = document.getElementById('modal');
+            const backdrop = document.getElementById('modal-backdrop');
+
+            modal.style.display = 'none';
+            backdrop.style.display = 'none';
+        }
+    </script>
+</body>
+</html>

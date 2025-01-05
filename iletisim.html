@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İletişim</title>
+    <link rel="stylesheet" href="iletisim.css">
+        
+</head>
+<body>
+    <header>
+        <a href="fcomp.html">  <div class="logo"><img src="sfnew2.jpg" width="50px" height="50px"></div></a>
+        <nav>
+            <a href="fcomp.html">Anasayfa</a>
+            <a href="urunlerdeneme.html">Ürünler</a>
+            <a href="fhakkimizda.html">Hakkımızda</a>
+            <a href="iletisim.html">İletişim</a>
+            <a href="sepetd.html">Sepet</a>
+        </nav>
+    </header>
+    <div class="contact-container">
+        <h1>Bizimle İletişime Geçin</h1>
+        <form action="mail.php" method="POST">
+            <div class="form-group">
+                <label for="name">Adınız</label>
+                <input type="text" id="name" name="name" placeholder="Adınızı girin" required>
+            </div>
+            <div class="form-group">
+                <label for="email">E-posta</label>
+                <input type="email" id="email" name="email" placeholder="E-posta adresinizi girin" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Mesajınız</label>
+                <textarea id="message" name="message" placeholder="Mesajınızı buraya yazın" required></textarea>
+            </div>
+            <button type="submit">Gönder</button>
+        </form>
+
+        <div class="contact-info">
+            <p>Telefon: +90 507 664 3662 +90 543 316 5123</p>
+            <p>Whatsapp: +90 507 664 3662 +90 543 316 5123</p>
+            <p>E-posta: arccoss23@gmail.com</p>
+            <p>Adres: Bilecik, Türkiye</p>
+        </div>
+    </div>
+</body>
+</html>
